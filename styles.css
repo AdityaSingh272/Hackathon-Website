@@ -1,0 +1,125 @@
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hard-shadow-sm {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.hard-shadow-md {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.btn-press:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.pixel-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.neo-pattern-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-answer.hidden {
+  display: none;
+}
+
+.faq-icon {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+header.scrolled {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1),
+    0 8px 24px rgba(0, 0, 0, 0.15);
+  border-bottom-color: #000;
+}
+
+::selection {
+  background-color: #2ff801;
+  color: #0b5800;
+}
+
+.hero-title-shadow {
+  filter: drop-shadow(3px 3px 0px #000);
+}
+
+@media (min-width: 640px) {
+  .hero-title-shadow {
+    filter: drop-shadow(6px 6px 0px #000);
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal="up"] {
+  transform: translateY(48px);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-40px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(40px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.88);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+[data-delay="1"] {
+  transition-delay: 0.08s;
+}
+
+[data-delay="2"] {
+  transition-delay: 0.16s;
+}
+
+[data-delay="3"] {
+  transition-delay: 0.24s;
+}
+
+[data-delay="4"] {
+  transition-delay: 0.32s;
+}
+
+[data-delay="5"] {
+  transition-delay: 0.40s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

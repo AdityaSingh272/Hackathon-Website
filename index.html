@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DevCraft 2026</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#e2e2e2",
+            "error-container": "#f95630",
+            "surface-bright": "#f6f6f6",
+            "error-dim": "#b92902",
+            "surface-tint": "#0f6b00",
+            "on-secondary-container": "#820082",
+            "inverse-on-surface": "#9d9d9d",
+            "surface-container-highest": "#dddddd",
+            "on-secondary-fixed": "#620061",
+            "on-surface-variant": "#5b5b5b",
+            "on-tertiary": "#fff4ad",
+            "tertiary-fixed": "#fde800",
+            "on-error": "#ffefec",
+            "on-surface": "#2f2f2f",
+            "primary-container": "#2ff801",
+            "secondary": "#a400a4",
+            "surface-variant": "#dddddd",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#d3ffc1",
+            "surface-dim": "#d4d4d4",
+            "on-secondary-fixed-variant": "#920091",
+            "tertiary-dim": "#585100",
+            "tertiary-fixed-dim": "#edda00",
+            "tertiary-container": "#fde800",
+            "on-primary-fixed": "#064200",
+            "on-secondary": "#ffeef8",
+            "outline-variant": "#adadad",
+            "on-tertiary-fixed-variant": "#675e00",
+            "primary-dim": "#0c5d00",
+            "outline": "#777777",
+            "on-primary-fixed-variant": "#0d6200",
+            "surface-container-low": "#f1f1f1",
+            "secondary-fixed-dim": "#ffa6f3",
+            "surface-container": "#e8e8e8",
+            "secondary-container": "#ffbdf3",
+            "on-error-container": "#520c00",
+            "secondary-dim": "#900090",
+            "primary-fixed": "#2ff801",
+            "surface": "#f6f6f6",
+            "inverse-surface": "#0e0e0e",
+            "on-tertiary-fixed": "#494200",
+            "inverse-primary": "#2ff801",
+            "primary": "#0f6b00",
+            "secondary-fixed": "#ffbdf3",
+            "on-primary-container": "#0b5800",
+            "on-tertiary-container": "#5d5400",
+            "error": "#b02500",
+            "on-background": "#2f2f2f",
+            "primary-fixed-dim": "#2be800",
+            "background": "#f6f6f6",
+            "tertiary": "#665d00"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Space Grotesk"]
+          },
+          borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+
+  <header
+    class="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 bg-white dark:bg-zinc-900 border-b-4 border-black dark:border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+    <a href="#" onclick="location.reload(); return false;"
+      class="text-2xl font-black italic tracking-tighter text-black dark:text-white font-headline uppercase no-underline cursor-pointer select-none"
+      style="text-decoration: none;">DEVCRAFT
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#about">ABOUT</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#stages">STAGES</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#tracks">TRACKS</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#loot">LOOT</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#team">TEAM</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-lime-400 transition-all duration-75 px-2"
+        href="#faqs">FAQs</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button
+        class="bg-primary-container text-black font-headline font-bold uppercase px-3 py-1.5 text-xs md:px-6 md:py-2 md:text-base border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">REGISTER</button>
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 border-2 border-black"
+        aria-label="Toggle menu">
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></span>
+      </button>
+    </div>
+  </header>
+  <div id="mobile-menu"
+    class="hidden fixed top-[73px] left-0 w-full bg-white border-b-4 border-black z-40 shadow-[0px_8px_0px_0px_rgba(0,0,0,1)]">
+    <nav class="flex flex-col">
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4 border-b-2 border-black/10"
+        href="#about">ABOUT</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4 border-b-2 border-black/10"
+        href="#stages">STAGES</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4 border-b-2 border-black/10"
+        href="#tracks">TRACKS</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4 border-b-2 border-black/10"
+        href="#loot">LOOT</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4 border-b-2 border-black/10"
+        href="#team">TEAM</a>
+      <a class="font-headline font-bold uppercase text-zinc-600 hover:text-black hover:bg-lime-400 transition-all px-6 py-4"
+        href="#faqs">FAQs</a>
+    </nav>
+  </div>
+
+  <main>
+    <section
+      class="relative min-h-[calc(100vh-72px)] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-[#26A69A]">
+      <div class="absolute inset-0 neo-pattern-grid pointer-events-none"></div>
+      <div
+        class="absolute -top-20 -left-20 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] bg-secondary rounded-full border-8 border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] opacity-60 sm:opacity-80">
+      </div>
+      <div
+        class="absolute top-1/4 right-[-50px] w-64 h-64 bg-tertiary-container border-8 border-black rotate-12 shadow-[15px_15px_0px_0px_rgba(0,0,0,1)] hidden lg:block">
+      </div>
+      <div
+        class="absolute bottom-1/4 left-[-30px] w-48 h-48 bg-primary-container border-8 border-black -rotate-6 shadow-[15px_15px_0px_0px_rgba(0,0,0,1)] hidden lg:block">
+      </div>
+      <svg class="absolute inset-0 w-full h-full opacity-30 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,100 Q400,150 800,50 T1200,200" fill="none" stroke="black" stroke-width="8"></path>
+        <path d="M200,900 Q600,700 1000,850" fill="none" stroke="black" stroke-width="8"></path>
+        <circle cx="10%" cy="15%" fill="black" r="10"></circle>
+        <circle cx="90%" cy="85%" fill="black" r="10"></circle>
+      </svg>
+      <div class="z-10 text-center max-w-5xl relative px-2">
+        <div
+          class="absolute left-1/2 -translate-x-1/2 w-[90vw] sm:w-[66vw] -top-[45px] -bottom-[35px] bg-white/10 backdrop-blur-md border-4 border-black/20 -z-10 rotate-1">
+        </div>
+        <div
+          class="inline-block bg-secondary-container text-on-secondary-container border-4 border-black px-4 sm:px-6 py-2 mb-4 font-label font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-base shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          PLAYER ONE READY?</div>
+        <h1
+          class="hero-title-shadow font-headline font-black text-4xl sm:text-6xl md:text-8xl uppercase tracking-tighter leading-none mb-4 text-white"
+          style="outline: none !important;">
+          DEVCRAFT 2026:<br />
+          <span style="color: #39FF14;">YOUR JOURNEY</span><br />
+          <span>BEGINS</span>
+        </h1>
+        <div
+          class="bg-black text-white p-3 sm:p-4 inline-block mb-4 sm:mb-6 border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)]">
+          <p class="font-body text-sm sm:text-lg md:text-xl font-bold max-w-2xl mx-auto uppercase">
+            Level up your skills, build the future, and claim the high score in the ultimate neo-arcade developer
+            challenge.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <button
+            class="bg-primary-container text-black font-headline font-black text-base sm:text-xl uppercase px-6 sm:px-10 py-3 sm:py-4 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] active:translate-y-2 active:shadow-none transition-all">
+            START GAME
+          </button>
+          <button id="view-quests-btn"
+            class="bg-white text-black font-headline font-black text-base sm:text-xl uppercase px-6 sm:px-10 py-3 sm:py-4 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:bg-tertiary-container active:translate-y-2 active:shadow-none transition-all">
+            VIEW QUESTS
+          </button>
+        </div>
+      </div>
+      <div
+        class="absolute top-1/2 left-10 w-12 h-12 bg-magenta-500 rounded-full border-4 border-black hidden lg:block animate-bounce">
+      </div>
+      <div class="absolute top-1/3 right-20 w-8 h-8 bg-yellow-400 border-2 border-black rotate-45 hidden lg:block">
+      </div>
+    </section>
+
+    <section id="about" class="py-14 md:py-24 px-4 sm:px-6 bg-white border-b-4 border-black relative overflow-hidden">
+      <div
+        class="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-10 -rotate-12 translate-x-10 -translate-y-10 border-4 border-black">
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <div class="lg:w-1/2 space-y-8">
+            <div
+              class="inline-block bg-primary text-white font-headline font-black text-xl uppercase px-4 py-1 border-2 border-black rotate-[-2deg] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              THE_MANIFESTO
+            </div>
+            <h2
+              class="font-headline font-black text-3xl sm:text-5xl md:text-7xl uppercase tracking-tighter leading-tight">
+              NOT JUST A HACKATHON. <br />
+              <span class="text-secondary bg-secondary-container px-2 border-2 border-black">A NEW HIGH SCORE.</span>
+            </h2>
+            <p
+              class="font-body text-base sm:text-xl md:text-2xl font-bold leading-relaxed border-l-8 border-primary pl-4 sm:pl-6">
+              DevCraft
+              is a 48-hour immersive build-session where the pixel-art past meets the decentralized future. We're
+              gathering the world's most creative devs to solve real-world glitches through code, design, and raw
+              innovation.</p>
+          </div>
+          <div class="lg:w-1/2">
+            <div
+              class="bg-tertiary-container border-4 border-black p-5 sm:p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] sm:rotate-2">
+              <div class="space-y-6">
+                <div class="flex gap-4 items-start">
+                  <div
+                    class="bg-black text-white w-12 h-12 flex items-center justify-center font-headline font-black text-2xl shrink-0 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                    01</div>
+                  <div>
+                    <h4 class="font-headline font-black text-2xl uppercase">POWER UP</h4>
+                    <p class="font-body font-bold text-on-surface-variant">DevCraft is a 48-hour immersive build-session
+                      where the pixel-art past meets the decentralized future. We're gathering the world's most creative
+                      devs to solve real-world glitches through code, design, and raw innovation.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                  <div
+                    class="bg-black text-white w-12 h-12 flex items-center justify-center font-headline font-black text-2xl shrink-0 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                    02</div>
+                  <div>
+                    <h4 class="font-headline font-black text-2xl uppercase">SQUAD FORMATION</h4>
+                    <p class="font-body font-bold text-on-surface-variant">DevCraft is a 48-hour immersive build-session
+                      where the pixel-art past meets the decentralized future. We're gathering the world's most creative
+                      devs to solve real-world glitches through code, design, and raw innovation.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                  <div
+                    class="bg-black text-white w-12 h-12 flex items-center justify-center font-headline font-black text-2xl shrink-0 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                    03</div>
+                  <div>
+                    <h4 class="font-headline font-black text-2xl uppercase">BOSS BATTLE</h4>
+                    <p class="font-body font-bold text-on-surface-variant">DevCraft is a 48-hour immersive build-session
+                      where the pixel-art past meets the decentralized future. We're gathering the world's most creative
+                      devs to solve real-world glitches through code, design, and raw innovation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stages" class="py-12 md:py-24 px-4 sm:px-6 bg-surface-container">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-surface-container-lowest p-6 sm:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group hover:-rotate-1 transition-transform">
+            <span class="material-symbols-outlined text-4xl mb-4 text-primary">videogame_asset</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-4">Event Platform</h3>
+            <p class="font-body text-on-surface-variant">Fully digital arena with live streaming, interactive workshops,
+              and virtual networking lounges.</p>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 sm:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group hover:rotate-1 transition-transform">
+            <span class="material-symbols-outlined text-4xl mb-4 text-secondary">info</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-4">Participation</h3>
+            <p class="font-body text-on-surface-variant">Open to developers, designers, and visionaries worldwide. All
+              skill levels welcome.</p>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 sm:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group hover:-rotate-1 transition-transform">
+            <span class="material-symbols-outlined text-4xl mb-4 text-tertiary">groups</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-4">Team Size</h3>
+            <p class="font-body text-on-surface-variant">2-4 players per squad. Build your dream team or find one in our
+              matchmaking terminal.</p>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 sm:p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group hover:rotate-1 transition-transform">
+            <span class="material-symbols-outlined text-4xl mb-4 text-error">calendar_today</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-4">Registration</h3>
+            <p class="font-body text-on-surface-variant">Limited slots available. Secure your access card before the
+              timer hits zero.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracks" class="py-10 md:py-14 px-4 sm:px-6 bg-surface border-y-4 border-black">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end justify-between mb-6 sm:mb-8">
+          <h2 class="font-headline font-black text-3xl sm:text-4xl md:text-5xl uppercase tracking-tighter">SELECT YOUR
+            <span class="text-secondary">TRACK</span>
+          </h2>
+          <div class="hidden md:block font-label font-black text-base uppercase border-b-4 border-primary">
+            MISSION_OBJECTIVES</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div
+            class="md:col-span-2 bg-primary-container p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-4xl mb-3">psychology</span>
+              <h3 class="font-headline font-black text-2xl uppercase mb-2">AI &amp; Machine Learning</h3>
+              <p class="font-body font-bold">Build neural networks that solve real-world complexities. Harness the power
+                of generative models and automation.</p>
+            </div>
+            <span
+              class="material-symbols-outlined absolute -bottom-10 -right-10 text-[8rem] opacity-20 rotate-12">smart_toy</span>
+          </div>
+          <div class="bg-secondary-container p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <span class="material-symbols-outlined text-4xl mb-3">currency_bitcoin</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-2">Web3 &amp; Blockchain</h3>
+            <p class="font-body font-bold text-sm">Decentralize everything. Create trustless systems and
+              ownership-driven digital economies.</p>
+          </div>
+          <div class="bg-tertiary-container p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <span class="material-symbols-outlined text-4xl mb-3">account_balance</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-2">Fintech Innovation</h3>
+            <p class="font-body font-bold text-sm">Reimagining the future of money. Payment rails, accessibility, and
+              financial literacy apps.</p>
+          </div>
+          <div
+            class="md:col-span-2 bg-surface-container-highest p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-4 items-start">
+            <div class="flex-1">
+              <span class="material-symbols-outlined text-4xl mb-3 text-error">health_and_safety</span>
+              <h3 class="font-headline font-black text-2xl uppercase mb-2">Healthcare Tech</h3>
+              <p class="font-body font-bold text-sm">Using data to save lives. Telehealth, patient monitoring, and
+                bio-tech integrations.</p>
+            </div>
+            <div class="flex-1 border-4 border-black p-4 bg-white flex flex-col justify-center items-center">
+              <div class="text-3xl font-black mb-1">99%</div>
+              <div class="font-label font-bold uppercase text-xs text-center">Uptime Requirement</div>
+            </div>
+          </div>
+          <div class="bg-primary p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white">
+            <span class="material-symbols-outlined text-4xl mb-3">eco</span>
+            <h3 class="font-headline font-black text-2xl uppercase mb-2">Sustainability</h3>
+            <p class="font-body font-medium text-sm">Green code for a green planet. Carbon tracking and circular economy
+              tools.</p>
+          </div>
+          <div
+            class="md:col-span-2 bg-secondary p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white flex justify-between items-center overflow-hidden relative">
+            <div class="z-10">
+              <span class="material-symbols-outlined text-4xl mb-3">hub</span>
+              <h3 class="font-headline font-black text-2xl uppercase mb-2">Open Innovation</h3>
+              <p class="font-body max-w-sm font-medium text-sm">The Wild Card. Surprise us with something we've never
+                seen before. No rules, just build.</p>
+            </div>
+            <div class="hidden md:block w-36 h-36 border-8 border-white/20 absolute -right-10 rotate-45"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 md:py-12 px-4 sm:px-6 bg-zinc-900 text-white">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          class="font-headline font-black text-3xl sm:text-4xl md:text-5xl uppercase mb-6 sm:mb-10 text-center text-primary-container">
+          CAMPAIGN TIMELINE</h2>
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center group">
+            <div class="w-full md:w-1/3 md:text-right">
+              <span class="font-headline font-black text-xl sm:text-2xl text-primary-container">OCT 15</span>
+            </div>
+            <div class="hidden md:flex flex-col items-center">
+              <div class="w-5 h-5 bg-primary-container border-2 border-white rounded-full"></div>
+              <div class="w-1 h-14 bg-primary-container"></div>
+            </div>
+            <div
+              class="w-full md:w-2/3 bg-zinc-800 p-5 border-4 border-primary-container shadow-[8px_8px_0px_0px_rgba(47,248,1,0.5)] group-hover:translate-x-2 transition-transform">
+              <h3 class="font-headline font-black text-xl uppercase mb-1">QUEST START: Registration Opens</h3>
+              <p class="text-zinc-400 font-body text-sm">Initial spawn point. Secure your entry and begin team formation
+                in the terminal.</p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center group">
+            <div class="w-full md:w-1/3 md:text-right">
+              <span class="font-headline font-black text-xl sm:text-2xl text-secondary-container">NOV 20</span>
+            </div>
+            <div class="hidden md:flex flex-col items-center">
+              <div class="w-5 h-5 bg-secondary-container border-2 border-white rounded-full"></div>
+              <div class="w-1 h-14 bg-secondary-container"></div>
+            </div>
+            <div
+              class="w-full md:w-2/3 bg-zinc-800 p-5 border-4 border-secondary-container shadow-[8px_8px_0px_0px_rgba(255,189,243,0.5)] group-hover:translate-x-2 transition-transform">
+              <h3 class="font-headline font-black text-xl uppercase mb-1">LEVEL 1: Submission Deadline</h3>
+              <p class="text-zinc-400 font-body text-sm">Point of no return. Submit your MVP for technical review by our
+                dungeon masters.</p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center group">
+            <div class="w-full md:w-1/3 md:text-right">
+              <span class="font-headline font-black text-xl sm:text-2xl text-tertiary-container">DEC 05</span>
+            </div>
+            <div class="hidden md:flex flex-col items-center">
+              <div class="w-5 h-5 bg-tertiary-container border-2 border-white rounded-full"></div>
+              <div class="w-1 h-14 bg-tertiary-container"></div>
+            </div>
+            <div
+              class="w-full md:w-2/3 bg-zinc-800 p-5 border-4 border-tertiary-container shadow-[8px_8px_0px_0px_rgba(253,232,0,0.5)] group-hover:translate-x-2 transition-transform">
+              <h3 class="font-headline font-black text-xl uppercase mb-1">THE SEMI-FINALS</h3>
+              <p class="text-zinc-400 font-body text-sm">Narrowing down the leaderboard. Top 20 teams present their
+                builds to industry experts.</p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center group">
+            <div class="w-full md:w-1/3 md:text-right">
+              <span class="font-headline font-black text-xl sm:text-2xl text-error-container">DEC 15</span>
+            </div>
+            <div class="hidden md:flex flex-col items-center">
+              <div class="w-8 h-8 bg-error-container border-4 border-white flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-sm">bolt</span>
+              </div>
+            </div>
+            <div
+              class="w-full md:w-2/3 bg-error-container p-6 border-4 border-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-black">
+              <h3 class="font-headline font-black text-2xl uppercase mb-1">THE FINAL BOSS: Demo Day</h3>
+              <p class="font-body font-bold">Live grand finale. Pitch your vision, fight for the trophy, and win your
+                share of the massive prize pool.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loot" class="px-4 sm:px-6 bg-surface flex flex-col justify-center"
+      style="min-height: calc(100vh - 72px); padding-top: 2rem; padding-bottom: 2rem;">
+      <div class="max-w-7xl mx-auto text-center w-full">
+        <h2 class="font-headline font-black text-3xl sm:text-4xl md:text-5xl uppercase mb-6 sm:mb-8">CLAIM THE <span
+            class="text-primary">LOOT</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          <div class="order-2 md:order-1 flex flex-col">
+            <div
+              class="bg-surface-container-high p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex-1 mt-8">
+              <span class="material-symbols-outlined text-5xl mb-3 text-zinc-500">military_tech</span>
+              <h3 class="font-headline font-black text-2xl uppercase mb-2">Silver Trophy</h3>
+              <div class="font-headline font-black text-3xl mb-4 text-secondary">₹5,000 INR</div>
+              <ul class="text-left space-y-2 font-body font-bold">
+                <li>• Gaming Peripheral Bundle</li>
+                <li>• Level Up Academy Pass</li>
+                <li>• Silver Achievement Badge</li>
+              </ul>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 flex flex-col">
+            <div
+              class="bg-primary-container p-8 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative z-10">
+              <div
+                class="absolute -top-6 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-2 font-label font-bold uppercase">
+                MVP PLAYER</div>
+              <span class="material-symbols-outlined text-5xl mb-3 text-on-primary-container">workspace_premium</span>
+              <h3 class="font-headline font-black text-3xl uppercase mb-2">Gold Medal</h3>
+              <div class="font-headline font-black text-4xl mb-4">₹15,000 INR</div>
+              <ul class="text-left space-y-2 font-body font-black">
+                <li>• High-End Workstation PCs</li>
+                <li>• VC Pitch Meeting Pass</li>
+                <li>• 1-on-1 Mentor Quest</li>
+                <li>• Legend Status Certificate</li>
+              </ul>
+            </div>
+          </div>
+          <div class="order-3 flex flex-col">
+            <div
+              class="bg-tertiary-container p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex-1 mt-8">
+              <span class="material-symbols-outlined text-5xl mb-3 text-amber-700">stars</span>
+              <h3 class="font-headline font-black text-2xl uppercase mb-2">Bronze Badge</h3>
+              <div class="font-headline font-black text-3xl mb-4 text-primary">₹2,500 INR</div>
+              <ul class="text-left space-y-2 font-body font-bold">
+                <li>• Swag Bag Pro Pack</li>
+                <li>• Tech Book Library Access</li>
+                <li>• Bronze Achievement Badge</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="py-12 md:py-16 px-4 sm:px-6 bg-surface-container">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-headline font-black text-3xl sm:text-5xl uppercase mb-6 sm:mb-10 text-center">THE <span
+            class="text-secondary">DEVS</span> BEHIND THE SCENES</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgAH8Wf8BQPLNAtkxLQNKGR2xb1PbE9Gc2WHLqKJqqX0-Nt2liqXHTWOZWdWSr3SdrC8VH3HB7pvIJXvVkr3lZI5PPc8fsmHvzqjSJpTg7NK5zou2wMjtFkSJSCwyvKFBUt2VRKK3uBkyUVLuZPnvws8XCJ4JAHCKDmsvlbUz2b7N_D5naD0HRS6xEs4qKkQKcrClQgNgahxvHpq_66JMAkZdQBSAgBm89xH1m31N4CAd3P2PnQwChCiAXR9BaBstpnZMmZUyTb_e6"
+                alt="Alex Rivers - Game Master" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Alex_Rivers</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Game Master</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG1gvTNSrrZkXmiqZeEk4y2wiOtOr6QEic-dTJerAAB0wW1Hq0XSxQonKcQJDiDhJYewjYVXhz9ZJRsBVM1txkQrLps0WgBpYBYTLZMs_D_CWQIeNQ4oKKh94sPBf1Q5V7KnhQOq6RQ3eSosFW6635o_Knr-f0I9PjGPJCw-ibvX4QI7NsY8ha6hMkMMM44b0CIj9W9aT7hOh8oFgnaIuC1QP2Yq8DT-2izV_ifZPEkp6-QtLQKESsghQEbFhZcfjmBJHCtj6G1Rhq"
+                alt="Sarah Protocol - System Architect" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Sarah_Protocol</h4>
+            <p class="font-label text-xs opacity-60 uppercase">System Architect</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB0REJP6SVX1lhc1vuEd9iKuxDFmmPJ4vk5I0-AqlZnBi1bI_vvG7qqUUzvJ9YUCzU4--XNWfwZ0U2VH07Jq5W-NdCJULktT_SoOG2D9pAefdyarx8tnesYFAIyC_iK9YsAqOFThg7OqeYQpQ-T8AUvbyhUKDl1GSEmDT-bDzySLcqURyi5pPB2AFtGKH0eiufuxo_jIk-mchQv4qEto529fwOrC6ITRnezc1bBTKZ3zZkQ8syBiOvsrKOC5qgvxXWU83EwVPvmKAg"
+                alt="Dev Mitch - Loot Specialist" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Dev_Mitch</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Loot Specialist</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvqkleF0hMzXP9IxOJCP9e8FiVwlbAz52-0jpYQOv-XvN8r1gTG3dsfgQ4vFw6PiOLCiEhPussbQP-WtV0JDPQRevB3OoWwKRlHjF_DpjOUXXO4gEiYotg_i51QMiydKC-qKrvuPOXMbhu4COxoq0pilyLuC-5bKhNg47CNyUBHWT-vdqatf7SFWKX5Bzps3HvQzKlx7Aoi__DJIOWd6JOsk1ptUXr1tY7dbKWdu37Bw6Pon6j247T1wNW7kPXcIaQAwmAfIPKh-A5"
+                alt="Elena Nexus - Quest Designer" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Elena_Nexus</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Quest Designer</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTV1ZP3mWBsOMnH_XsEV-O2YaagWlaXFRbOiE9lNBMMp7YeZeruI_VCBfG_g93MOgmODrXE0VUpLGuep-Op6z1gUFei1zn-Pnx97V3GwVLqSYdSm1rHe4tjwUpagLLbNODp3tgSA3Udz8uPHKYFwtcSxeVaaEZerCmf-PopAx_Z7N51SpMpJfMofj92fdIJVNfCYg98YlhxYh4oTdkkgWDT7pwRrsQBH9KYMNqIpeibNIHD2ZkOhN24sYXmAtU2-Y-qlH5mHqyT_nJ"
+                alt="Mark Core - Final Boss" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Mark_Core</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Final Boss</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaFAzk_0vJf_FvZR32Bs4CFAbCe10R1gZrX8GSFwMlvL-ADAAo0otZ0tLP1tzPoCPya1wt2K0eGtK_3TqgQEne0yaV7SQINzdlhim3rzXASBXp-6-L_cp9NS1R2OpuDmptYoOcv0pHqTKC11BBi0r-0K5GF_D5Nx6rC1CPro4dWW47vSgEXydjjhBIMu1L-P5wLoirGkB6V9oqkUj3rS5jgk7GiOwP56GPh1vBpvakH5fUMEiwq9c6wtS0sMFC0CZuAPtoJ0wNtuly"
+                alt="Tiffany Logic - PR & Comms" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Tiffany_Logic</h4>
+            <p class="font-label text-xs opacity-60 uppercase">PR &amp; Comms</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtA41oKjYFpWYWuryQsaHFiN9f_jUvw-Ha3LU1hMa5OYqLY0nLo4n9ODPteAdNbWvbc5oQExkRxA8N8kB1dMlQg_DyQxbBGcw1Mxl7l7msJix6zZseg8jBhthP3lxQb-mJBnSuKwxeEfWsp5_B5jMfY84oHhs2Jnh2VuGKLDy4rU2nVpBClhRJhhbUJmrOYg_fFVIMoIVFxIoSh2ng-Ng_3KMeUCKOdsRkLzW2tMGOXLEYttuHhU3tSrUSCtGsqUNSSuQ1COsNOkST"
+                alt="Jason Bit - Operations" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Jason_Bit</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Operations</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtZ68FkSfjxv0Ta2im33GlWCk5LrevkDiKbtGVYXPDdZSB2-1ElU8D7wqdLUU24wIxjkp6P4OdXHmH73t2OkostzC-NLrR7LiOhhtTtoa9hMHYhIORXLOkGiGhy8KQ7RgFTW9vQwQ-xrbTO2eQJXMjtxloa5HORf5cPHDatHqDjKWYmldTxTompoGJWVxEYRc2biwwy8qjB3L0hBKqiw3QxWyg9339uZ9KuyOTlocz83Ipltx24X-5XfuuH7P8hYjUckW_QPCMddbp"
+                alt="Chloe Pixel - Lead Designer" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Chloe_Pixel</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Lead Designer</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK7SeCWtnomH2vS_1ik2OH5PUDeLgIW1zKoPExpRWKyQ2mMOpn1piqoYroeCyYetS4KV_ODTVF-2XBU35lSw2EuIo1Ziolp4rwmKMvUpfzdK4vUWTIC2pMQTc6ABISEfk3Lkfa8e920ByCkSwl26Qux18hkiIZghzQnFbcoFZGNESD7v4FHmJGlooWil72L5sFXfrYBu1cMjcQu3E9FPrwb52gPbhGsZvsatm34asTE_NHAvYs9DjbsrN-Ot4LnwNj86-J3-qq_E1n"
+                alt="Ryan Stack - Infrastructure" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Ryan_Stack</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Infrastructure</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-300 border-4 border-black mb-4 overflow-hidden relative group">
+              <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWkLuRcx2NO_uKOXpLKRTOY3Bf-wBFmwz9Bgzlly7KF3Ov_5Rab3UbWbDU6FCiahSAX2pczMTwfCnXqSSl7RrFbhfsvwbbFjYup4m9Aa5TYQrKOqUDWeJ9KlC57Fu1oEKET8iQ7Ds_aK7s-rn1czSOBOG131U2tu3QWWD2YR2hm5LoLeLtAoc0hfvZYJ3hNC4PBAL_XlhcP86aE8C-cOqmcHokYApMZw-ji73qQLTYtfyDJ6tqNmu_u27hFwif0H34pTFO37GVT1L9"
+                alt="Zoe Root - Community" />
+            </div>
+            <h4 class="font-headline font-bold text-center uppercase text-sm">Zoe_Root</h4>
+            <p class="font-label text-xs opacity-60 uppercase">Community</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-12 md:py-24 px-4 sm:px-6 bg-surface border-t-4 border-black">
+      <div class="max-w-7xl mx-auto">
+        <p class="font-label font-bold text-center uppercase mb-12 tracking-[0.3em]">POWERED_BY_THE_BEST</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div
+            class="h-24 border-4 border-black flex items-center justify-center p-4 hover:bg-secondary-container transition-colors">
+            <span class="font-headline font-black text-2xl text-center">UNSTOP</span>
+          </div>
+          <div
+            class="h-24 border-4 border-black flex items-center justify-center p-4 hover:bg-primary-container transition-colors">
+            <span class="font-headline font-black text-xl text-center leading-tight">T.I.M.E.S<br>GWALIOR</span>
+          </div>
+          <div
+            class="h-24 border-4 border-black flex items-center justify-center p-4 hover:bg-tertiary-container transition-colors">
+            <span class="font-headline font-black text-xl text-center leading-tight">RAVINDRA<br>IAS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs" class="py-14 md:py-24 px-4 sm:px-6 bg-surface-container-high border-t-4 border-black">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-headline font-black text-3xl sm:text-5xl uppercase mb-8 sm:mb-16 text-center">TUTORIAL &amp;
+          <span class="text-error">HELP</span>
+        </h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item bg-surface-container-lowest border-4 border-black p-6">
+            <button class="faq-btn w-full flex justify-between items-center text-left">
+              <span class="font-headline font-bold text-xl uppercase">Who can participate in this hackathon?</span>
+              <span class="material-symbols-outlined faq-icon">remove</span>
+            </button>
+            <div class="faq-answer mt-4 font-body text-on-surface-variant border-t-2 border-black/10 pt-4">
+              Anyone over the age of 18 with a passion for building! Students, professionals, and hobbyists from all
+              over the world are welcome to join.
+            </div>
+          </div>
+          <div class="faq-item bg-surface-container-lowest border-4 border-black p-6">
+            <button class="faq-btn w-full flex justify-between items-center text-left">
+              <span class="font-headline font-bold text-xl uppercase">What is the cost of registration?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer hidden mt-4 font-body text-on-surface-variant border-t-2 border-black/10 pt-4">
+              Registration is completely free! All you need is your skills and passion to compete.
+            </div>
+          </div>
+          <div class="faq-item bg-surface-container-lowest border-4 border-black p-6">
+            <button class="faq-btn w-full flex justify-between items-center text-left">
+              <span class="font-headline font-bold text-xl uppercase">How are the teams formed?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer hidden mt-4 font-body text-on-surface-variant border-t-2 border-black/10 pt-4">
+              Teams of 2–4 members can register together, or use our matchmaking terminal to find teammates based on
+              your skills and interests.
+            </div>
+          </div>
+          <div class="faq-item bg-surface-container-lowest border-4 border-black p-6">
+            <button class="faq-btn w-full flex justify-between items-center text-left">
+              <span class="font-headline font-bold text-xl uppercase">Can I submit an existing project?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer hidden mt-4 font-body text-on-surface-variant border-t-2 border-black/10 pt-4">
+              No — all projects must be built during the hackathon period. Pre-existing codebases are not eligible for
+              submission.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-16 sm:py-32 px-4 sm:px-6 bg-secondary relative overflow-hidden text-white text-center border-y-4 border-black">
+      <div class="z-10 relative">
+        <h2 class="font-headline font-black text-4xl sm:text-6xl md:text-8xl uppercase mb-6 sm:mb-10 tracking-tighter">
+          READY TO START?</h2>
+        <p class="font-body text-base sm:text-2xl mb-8 sm:mb-12 max-w-2xl mx-auto opacity-90">INSERT COIN TO CONTINUE OR
+          REGISTER NOW FOR THE
+          ULTIMATE QUEST.</p>
+        <button
+          class="bg-primary-container text-black font-headline font-black text-lg sm:text-2xl uppercase px-8 sm:px-16 py-4 sm:py-6 border-4 border-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black transition-all">
+          JOIN THE GAME
+        </button>
+      </div>
+      <div class="absolute inset-0 pixel-grid opacity-20"></div>
+    </section>
+  </main>
+
+  <footer class="px-4 sm:px-6 py-10 sm:py-16 border-t-4 font-headline bg-white text-black border-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-4xl text-zinc-900">public</span>
+            <span class="text-3xl font-black tracking-tighter uppercase">DevCraft</span>
+          </div>
+          <div class="space-y-2 uppercase font-bold tracking-wider">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span>
+              <span>CRAFTING THE FUTURE</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-xl font-black uppercase tracking-widest text-black">QUICK LINKS</h4>
+          <nav class="flex flex-col gap-4">
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#about"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span> ABOUT</a>
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#stages"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span>
+              STAGES</a>
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#tracks"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span>
+              TRACKS</a>
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#team"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span> TEAM</a>
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#stages"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span>
+              TIMELINE</a>
+            <a class="flex items-center gap-2 uppercase font-bold hover:text-primary transition-colors"
+              href="#loot"><span class="material-symbols-outlined text-sm text-zinc-900">chevron_right</span> PRIZES</a>
+          </nav>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-xl font-black uppercase tracking-widest text-black">CONTACT</h4>
+          <div class="flex flex-col gap-4 font-bold uppercase">
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-sm mt-1 text-zinc-900">chevron_right</span>
+              <a href="https://web.mitsgwalior.in/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-primary transition-colors">MITS GWALIOR</a>
+            </div>
+            <div class="flex items-start gap-2 break-all">
+              <span class="material-symbols-outlined text-sm mt-1 text-zinc-900">chevron_right</span>
+              <a href="mailto:digitallearninggroupmits@gmail.com"
+                class="hover:text-primary transition-colors">digitallearninggroupmits<br>@gmail.com</a>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-sm mt-1 text-zinc-900">chevron_right</span>
+              <span>+91 9244524591</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-sm mt-1 text-zinc-900">chevron_right</span>
+              <span>+91 9584427192</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-xl font-black uppercase tracking-widest text-black">COMMUNITY</h4>
+          <div class="flex flex-col border-2">
+            <a class="flex items-center gap-4 p-3 border-b-2 hover:bg-zinc-900 hover:text-white transition-colors uppercase font-bold text-sm"
+              href="https://discord.com/invite/mufAp5KdGu" target="_blank" rel="noopenner noreferrer">
+              <span class="material-symbols-outlined text-zinc-900">forum</span> DISCORD
+            </a>
+            <a class="flex items-center gap-4 p-3 border-b-2 hover:bg-zinc-900 hover:text-white transition-colors uppercase font-bold text-sm"
+              href="https://www.instagram.com/ieeecomputersocietymits?igsh=YXU3NnFuaXZna203" target="_blank"
+              rel="noopenner noreferrer">
+              <span class="material-symbols-outlined text-zinc-900">photo_camera</span> INSTAGRAM
+            </a>
+            <a class="flex items-center gap-4 p-3 hover:bg-zinc-900 hover:text-white transition-colors uppercase font-bold text-sm"
+              href="https://chat.whatsapp.com/JpNPyFkCC5I1J5bmbWfYIa" target="_blank" rel="noopenner noreferrer">
+              <span class="material-symbols-outlined text-zinc-900">chat</span> WHATSAPP
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t-2 py-6 sm:py-12">
+        <p class="text-xs font-black uppercase tracking-widest mb-6 text-zinc-1000">DEVELOPED BY <a
+            href="https://www.linkedin.com/in/aditya-kumar-singh-252a7939b/" target="_blank" rel="noopener noreferrer"
+            class="hover:opacity-60 transition-opacity">Aditya Kumar Singh</a></p>
+        <p class="text-xs font-black uppercase tracking-widest mt-4 text-zinc-1000">© 2026 DevCraft. All rights
+          reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
